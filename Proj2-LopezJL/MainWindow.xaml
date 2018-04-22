@@ -22,11 +22,11 @@
 
         <Grid Margin="19,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="111" Width="299" Grid.ColumnSpan="2">
             <Label x:Name="labelLoanPeriod" Content="Loan Period" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90"/>
-            <RadioButton x:Name="radioButton15" Content="15 Year Loan" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" Margin="109,13,0,0" IsChecked="True" Checked="radioButton15_Checked"/>
-            <RadioButton x:Name="radioButton30" Content="30 Year Loan" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" Margin="109,33,0,0" Checked="radioButton30_Checked"/>
-            <RadioButton x:Name="radioButtonOther" Content="Other Period" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" RenderTransformOrigin="0.488,3.333" Margin="109,53,0,0" Checked="radioButtonOther_Checked"/>
+            <RadioButton x:Name="rdoButton15" Content="15 Year Loan" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" Margin="109,13,0,0" IsChecked="True" Checked="rdoButton15_Checked" Click="rdoButton15_Click"/>
+            <RadioButton x:Name="rdoButton30" Content="30 Year Loan" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" Margin="109,33,0,0" Checked="rdoButton30_Checked" Click="rdoButton30_Click"/>
+            <RadioButton x:Name="rdoButtonOther" Content="Other Period" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" RenderTransformOrigin="0.488,3.333" Margin="109,53,0,0" Checked="rdoButtonOther_Checked" Click="rdoButtonOther_Click"/>
             <Label x:Name="labelOtherPeriod" Content="Other Period" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.423" Width="90" Height="23"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="109,78,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" IsEnabled="False" ToolTip="Enter Other Loan Period"/>
+            <TextBox x:Name="txtOtherPeriod" HorizontalAlignment="Left" Height="23" Margin="109,78,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" IsEnabled="False" ToolTip="Enter Other Loan Period"/>
         </Grid>
 
         <Label x:Name="InterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="29,216,0,0" VerticalAlignment="Top" Height="30" Width="90" Grid.ColumnSpan="2"/>
