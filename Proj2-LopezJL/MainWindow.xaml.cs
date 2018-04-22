@@ -24,5 +24,41 @@ namespace Proj2_LopezJL
         {
             InitializeComponent();
         }
+
+
+        private void pincipalAmount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void radioButton15_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButton30_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButtonOther_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void interestRateSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void buttonReset_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonCalculate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
