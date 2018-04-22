@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,38 +31,47 @@ namespace Proj2_LopezJL
         private double _principal, _loanPeriod, _interestRate, _monthlyPayment;
         private bool _interestRateInput, _principalInput;
 
-        private void txtPincipalAmount_KeyDown(object sender, KeyEventArgs e)
+        //ensure that number is only passed using a regex expession.
+        private static bool OnlyTextAllowed(string text)
         {
+            Regex regex = new Regex("[^0-9.-]+"); //regex that checks for numeric text
+            return !regex.IsMatch(text);
+        }
 
+        //use the preview text to ensure that text in principal is numeric value
+        private void txtPincipalAmount_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !OnlyTextAllowed(e.Text); //ensure only numeric value is entered
         }
 
         //Event for change in principal amount change in text.
         private void pincipalAmount_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _principalInput = true;
+            _principalInput = true; //let wpf know principal has been entered
         }
 
+        //Event for change in principal amount change in text.
         private void txtPincipalAmount_TextInput(object sender, TextCompositionEventArgs e)
         {
-            _principalInput = true;
+            _principalInput = true; //let wpf know principal has been entered
             
         }
         //Event for 15 year loan period radio button is checked
         private void rdoButton15_Checked(object sender, RoutedEventArgs e)
         {
-
+            txtOtherPeriod.IsEnabled = false; //disable field other
         }
 
         //Event for 15 year loan period radio button if checked
         private void rdoButton30_Checked(object sender, RoutedEventArgs e)
         {
-
+            txtOtherPeriod.IsEnabled = false; //disable field other
         }
 
         //Event for 15 year loan period radio button if checked
         private void rdoButtonOther_Checked(object sender, RoutedEventArgs e)
         {
-            
+            txtOtherPeriod.IsEnabled = true;
         }
 
         //event for Manual loan period radio button if clicked
@@ -70,60 +80,92 @@ namespace Proj2_LopezJL
             txtOtherPeriod.IsEnabled = true;
         }
 
+        //only allow numeric values in thie field
+        private void txtOtherPeriod_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !OnlyTextAllowed(e.Text); //verify that only numeric value is entered
+        }
+
         //Event for interest rate change slider
         private void interestRateSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             _interestRateInput = true;
         }
 
-        //Event for resetting form.
+        //Event for resetting form. Not implemented
         private void buttonReset_Click(object sender, RoutedEventArgs e)
         {
+            //stub to clear values and start over.
+        }
 
+        double MonthlyPayment(double p, double rate, double period)
+        {
+            //value is locally scoped
+
+            double pay; //variable for return of monthly payment
+            const double c = 1200.00; // const 1200.00
+            double denom = (1 + rate / c); //begin calculate the denominator
+            period = -12 * period; //calculate the power
+            denom = Math.Pow(denom, period); //denom to the power of -12 * y
+            pay = (p * rate / c) / (1 - denom); //PEDMAS for payment
+
+            return pay; //return payment
         }
 
         //Event for for submit button to calculate. Gathers all information and calculates
         private void buttonCalculate_Click(object sender, RoutedEventArgs e)
         {
             string catchPrincipalInput = "";
-            string catchLoanInput = "";
-            string catchInterestInput = "";
+            string catchOtherInput = "";
+            
 
-            if (_principalInput == false)
+            if (_principalInput == false) //verify principal is not null
             {
-                MessageBox.Show("Please enter a principal amount");
-                if (_interestRateInput == false)
+                
+                if (_principalInput == false) //verify interest rate was not null
                 {
-                    MessageBox.Show("Please enter a interest rate amount");
+                    MessageBox.Show("Please enter a principal amount");
                 }
-            } else if (_interestRateInput == false)
+                
+            } else if (_interestRateInput == false) //verfiy once again in case first value was true
             {
                 MessageBox.Show("Please enter a interest rate amount");
             }
-            else
+            else //if both are true then carry on
             {
-                if (rdoButton15.IsChecked == true)
+                if (rdoButton15.IsChecked == true) //deterimine which radio button checked
                 {
                     MessageBox.Show("You selected 15 years");
                     _loanPeriod = 15.0;
                 }
-                else if (rdoButton30.IsChecked == true)
+                else if (rdoButton30.IsChecked == true) //deterimine which radio button checked
                 {
                     MessageBox.Show("You selected 30 years");
-                }
-                else if (rdoButtonOther.IsChecked == true)
                     _loanPeriod = 30.0;
+                }
+                else if (rdoButtonOther.IsChecked == true) //deterimine which radio button checked
                 {
                     MessageBox.Show("You selected 30 years");
-                    catchLoanInput = txtOtherPeriod.Text;
+                    catchOtherInput = txtOtherPeriod.Text;
+                    _loanPeriod = double.Parse(catchOtherInput);
                 }
+                
+                //convert principal input to a double.
                 catchPrincipalInput = txtPincipalAmount.Text;
-                MessageBox.Show("You entered Principal" + catchPrincipalInput);
+                _principal = double.Parse(catchPrincipalInput);
+
+                //convert interest rate input to a double.
                 _interestRate = interestRateSlider.Value;
-                MessageBox.Show("You entered an interest rate of: " + interestRateSlider);
+              
+
+                //Calculate monthly payment
+                _monthlyPayment = MonthlyPayment(_principal, _interestRate, _loanPeriod);
+                string monthly =  String.Format("Your monthly payment is ${0:N2}", _monthlyPayment);
+                txtDisplayMonthly.Text = monthly;
+
+//                MessageBox.Show("Your Monthly Payment is: $" + monthly);
             }
             
-
         }
 
     }

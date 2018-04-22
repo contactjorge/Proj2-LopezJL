@@ -18,8 +18,8 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="111" Margin="19,65,0,0" VerticalAlignment="Top" Width="478" Grid.ColumnSpan="3"/>
 
         <Label x:Name="Principal" Content="Principal" HorizontalAlignment="Left" Margin="29,23,0,0" VerticalAlignment="Top" ToolTip="Enter principal amount" Grid.ColumnSpan="2" Width="90" Height="25"/>
-        <TextBox x:Name="txtPincipalAmount" HorizontalAlignment="Center" Height="25" Margin="4,23,213,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="2" TextChanged="pincipalAmount_TextChanged" AutomationProperties.IsRequiredForForm="True" TextInput="txtPincipalAmount_TextInput" KeyDown="txtPincipalAmount_KeyDown"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="90" Margin="19,182,0,0" VerticalAlignment="Top" Width="478" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtPincipalAmount" HorizontalAlignment="Center" Height="25" Margin="4,23,213,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="2" TextChanged="pincipalAmount_TextChanged" AutomationProperties.IsRequiredForForm="True" TextInput="txtPincipalAmount_TextInput" PreviewTextInput="txtPincipalAmount_PreviewTextInput"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="51" Margin="19,182,0,0" VerticalAlignment="Top" Width="478" Grid.ColumnSpan="3"/>
 
         <Grid Margin="19,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="111" Width="299" Grid.ColumnSpan="3">
             <Label x:Name="labelLoanPeriod" Content="Loan Period" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90"/>
@@ -27,17 +27,36 @@
             <RadioButton x:Name="rdoButton30" Content="30 Year Loan" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" Margin="109,33,0,0" Checked="rdoButton30_Checked"/>
             <RadioButton x:Name="rdoButtonOther" Content="Other Period" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="LoanPeriod" RenderTransformOrigin="0.488,3.333" Margin="109,53,0,0" Checked="rdoButtonOther_Checked" Click="rdoButtonOther_Click"/>
             <Label x:Name="labelOtherPeriod" Content="Other Period" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.423" Width="90" Height="25"/>
-            <TextBox x:Name="txtOtherPeriod" HorizontalAlignment="Left" Height="25" Margin="109,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" ToolTip="Enter Other Loan Period" UseLayoutRounding="False" IsEnabled="False"/>
+            <TextBox x:Name="txtOtherPeriod" HorizontalAlignment="Right" Height="25" Margin="0,78,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" ToolTip="Enter Other Loan Period" UseLayoutRounding="False" IsEnabled="False" PreviewTextInput="txtOtherPeriod_PreviewTextInput"/>
         </Grid>
         <Label x:Name="InterestRate" Content="Interest Rate" HorizontalAlignment="Left" Margin="29,191,0,0" VerticalAlignment="Top" Height="30" Width="90" Grid.ColumnSpan="2"/>
         <Slider x:Name="interestRateSlider" Margin="0,191,27,0" VerticalAlignment="Top" ToolTip="Choose interest rate" 
-                TickPlacement="Both" Minimum="3.5" SmallChange="0.25" Grid.Column="2" HorizontalAlignment="Right" Width="370" Value="2" 
+                TickPlacement="Both" Minimum="3.5" SmallChange="0.25" Grid.Column="2" HorizontalAlignment="Right" Width="370" 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 ValueChanged="interestRateSlider_ValueChanged" AutoToolTipPlacement="BottomRight" Foreground="Gray" AutoToolTipPrecision="2" 
-                Ticks="4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9" SelectionStart="3.5" Maximum="9.5"/>
-        <Label x:Name="labelInterestRate" Content="Label" HorizontalAlignment="Left" Margin="29,229,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="90" Height="25" RenderTransformOrigin="0.444,0.28"/>
-        <TextBox x:Name="txtDisplayInterestRate" Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="1,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Button x:Name="buttonCalculate" Content="Calculate" HorizontalAlignment="Left" Margin="299,301,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="buttonCalculate_Click"/>
-        <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" Margin="196,301,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="buttonReset_Click"/>
+                Ticks="3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25, 6.5, 6.75, 7, 7.25, 7.5, 7.75, 8, 8.25"
+                SelectionStart="3.5" Maximum="8.5" Cursor="" LargeChange="0.5"/>
+        <Label x:Name="labelInterestRate" Content="Monthly Payment" HorizontalAlignment="Left" Margin="35,245,0,0" VerticalAlignment="Top" Width="110" Height="25" RenderTransformOrigin="0.444,0.28" Grid.Column="2"/>
+        <TextBox x:Name="txtDisplayMonthly" Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="150,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Button x:Name="buttonCalculate" Content="Calculate" HorizontalAlignment="Left" Margin="299,293,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="buttonCalculate_Click"/>
+        <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" Margin="204,293,0,0" VerticalAlignment="Top" Width="75" Click="buttonReset_Click" Grid.Column="2"/>
 
     </Grid>
 </Window>
