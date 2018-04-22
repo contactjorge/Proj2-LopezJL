@@ -59,25 +59,25 @@ namespace Proj2_LopezJL
         //Event for 15 year loan period radio button is checked
         private void rdoButton15_Checked(object sender, RoutedEventArgs e)
         {
-            txtOtherPeriod.IsEnabled = false; //disable field other
+           // txtOtherPeriod.IsEnabled = false; //disable field other
         }
 
         //Event for 15 year loan period radio button if checked
         private void rdoButton30_Checked(object sender, RoutedEventArgs e)
         {
-            txtOtherPeriod.IsEnabled = false; //disable field other
+            //txtOtherPeriod.IsEnabled = false; //disable field other
         }
 
         //Event for 15 year loan period radio button if checked
         private void rdoButtonOther_Checked(object sender, RoutedEventArgs e)
         {
-            txtOtherPeriod.IsEnabled = true;
+            //txtOtherPeriod.IsEnabled = true; //ensure this field is enabled upon selection
         }
 
         //event for Manual loan period radio button if clicked
         private void rdoButtonOther_Click(object sender, RoutedEventArgs e)
         {
-            txtOtherPeriod.IsEnabled = true;
+            txtOtherPeriod.IsEnabled = true; //ensure this field is enabled upon selection
         }
 
         //only allow numeric values in thie field
@@ -89,7 +89,7 @@ namespace Proj2_LopezJL
         //Event for interest rate change slider
         private void interestRateSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            _interestRateInput = true;
+            _interestRateInput = true; //capture interest rate.
         }
 
         //Event for resetting form. Not implemented
@@ -115,9 +115,9 @@ namespace Proj2_LopezJL
         //Event for for submit button to calculate. Gathers all information and calculates
         private void buttonCalculate_Click(object sender, RoutedEventArgs e)
         {
-            string catchPrincipalInput = "";
-            string catchOtherInput = "";
-            
+            string catchPrincipalInput = ""; //catch the principal input into a string
+            string catchOtherInput = ""; //catch the other loan period input into a string
+
 
             if (_principalInput == false) //verify principal is not null
             {
@@ -135,17 +135,14 @@ namespace Proj2_LopezJL
             {
                 if (rdoButton15.IsChecked == true) //deterimine which radio button checked
                 {
-                    MessageBox.Show("You selected 15 years");
                     _loanPeriod = 15.0;
                 }
                 else if (rdoButton30.IsChecked == true) //deterimine which radio button checked
                 {
-                    MessageBox.Show("You selected 30 years");
                     _loanPeriod = 30.0;
                 }
                 else if (rdoButtonOther.IsChecked == true) //deterimine which radio button checked
                 {
-                    MessageBox.Show("You selected 30 years");
                     catchOtherInput = txtOtherPeriod.Text;
                     _loanPeriod = double.Parse(catchOtherInput);
                 }
@@ -163,7 +160,6 @@ namespace Proj2_LopezJL
                 string monthly =  String.Format("Your monthly payment is ${0:N2}", _monthlyPayment);
                 txtDisplayMonthly.Text = monthly;
 
-//                MessageBox.Show("Your Monthly Payment is: $" + monthly);
             }
             
         }

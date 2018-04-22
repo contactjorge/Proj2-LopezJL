@@ -2,13 +2,15 @@
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
     <Node Id="(@1 Namespace=Proj2_LopezJL Type=MainWindow Member=interestRateSlider)" Category="CodeSchema_Field" Bounds="59.9674056,119.92348416,129.98,25.96" CodeSchemaProperty_IsInternal="True" CommonLabel="interestRateSlider" DelayedCrossGroupLinksState="Fetched" Icon="CodeSchema_Field" Label="interestRateSlider" SourceLocation="(Assembly=file:///C:/Users/conta/Source/Repos/Proj2-LopezJ/Proj2-LopezJL/Proj2-LopezJL/obj/Debug/MainWindow.g.i.cs StartLineNumber=133 StartCharacterOffset=48 EndLineNumber=133 EndCharacterOffset=66)" />
-    <Node Id="@2" Category="CodeSchema_Assembly" AssemblyTimestamp="04/22/2018 03:12:58" Bounds="47.425,90.48,155.13,25" CodeSchemaProperty_StrongName="Proj2-LopezJL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" CommonLabel="Proj2-LopezJL" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" FilePath="$(60816ec5-acf8-49a2-a3fe-3fe015b42822.OutputPath)" Group="Collapsed" Label="Proj2-LopezJL.exe" UseManualLocation="True">
+    <Node Id="2120e55a-3564-4518-b480-52bc4e342b2a1" Category="Comment" Bounds="47.425,117.98005,99.48,21.96" Label="New Comment" UseManualLocation="True" />
+    <Node Id="@2" Category="CodeSchema_Assembly" AssemblyTimestamp="04/22/2018 03:12:58" Bounds="47.425,62.97995,155.13,25" CodeSchemaProperty_StrongName="Proj2-LopezJL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" CommonLabel="Proj2-LopezJL" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" FilePath="$(60816ec5-acf8-49a2-a3fe-3fe015b42822.OutputPath)" Group="Collapsed" Label="Proj2-LopezJL.exe" UseManualLocation="True">
       <Category Ref="CodeMap_WpfProject" />
     </Node>
     <Node Id="@3" Category="CodeSchema_Namespace" Bounds="20,40,209.98,145.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Proj2_LopezJL" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Label="Proj2_LopezJL" UseManualLocation="True" />
     <Node Id="@4" Category="CodeSchema_Class" Bounds="40.0192456,80.02716416,169.98,85.96" CodeSchemaProperty_IsPublic="True" CommonLabel="MainWindow" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="MainWindow" />
   </Nodes>
   <Links>
+    <Link Source="2120e55a-3564-4518-b480-52bc4e342b2a1" Target="@2" Bounds="102.877751098072,95.9639631351778,11.4546834619546,22.0160868648223" />
     <Link Source="@2" Target="@3" Category="Contains" FetchingParent="@2" />
     <Link Source="@3" Target="@4" Category="Contains" FetchingParent="@3" />
     <Link Source="@4" Target="(@1 Namespace=Proj2_LopezJL Type=MainWindow Member=interestRateSlider)" Category="Contains" FetchingParent="@4" />
@@ -21,6 +23,7 @@
     <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
     <Category Id="CodeSchema_Namespace" Label="Namespace" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="CodeSchema_Namespace" NavigationActionLabel="Namespaces" />
     <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Comment" Label="Comment" Description="Represents a user defined comment on the diagram" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Comments" />
     <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
     <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
   </Categories>
